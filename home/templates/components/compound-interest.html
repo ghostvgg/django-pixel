@@ -1,0 +1,105 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<main>
+    {% include 'includes/pre-loader.html' %}
+    <!-- Hero -->
+    <div class="section-header pb-6 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <h1 class="display-3 mb-4">Compound Interest</h1>
+                    <p class="lead mb-5">The accordion uses collapse internally to make it collapsible. To render an
+                        accordion that’s expanded, add the <span class="fw-bold">.open</span> class on the <span
+                            class="fw-bold">.accordion</span>.</p>
+                    <div class="alert bg-secondary" role="alert">
+                        <span class="fas fa-info-circle"></span>
+                        <a class="fw-bold text-white text-underline mx-1"
+                            href="https://themesberg.com/docs/pixel-bootstrap/components/accordions/"
+                            target="_blank">See our Documentation</a> for a detailed technical explanation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Hero -->
+    <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <h2 class="h5">复利计算</h2>
+                </div>
+            </div>
+            <!-- End of Title -->
+        </div>
+    </div>
+    <!-- Section -->
+    <div class="section section-md pt-4">
+        <div class="container">
+            <form action="compound-interest" method="post">
+                <div class="row mb-2 mb-lg-3">
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Form -->
+                        <div class="mb-3">
+                            <label for="exampleInputIconLeft">本金</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><span
+                                        class="fas fa-money-bill"></span></span>
+                                <input type="text" class="form-control" id="principal" name="principal" placeholder="10000">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="year">投资年期</label>
+                            <input type="text" id="year" name="year" class="form-control" placeholder="">
+                        </div>
+                        <!-- End of Form -->
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="mb-3">
+                            <label for="monthlyAmt">每月供款</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><span
+                                        class="fas fa-money-bill"></span></span>
+                                <input type="text" class="form-control" id="monthlyAmt" name="monthlyAmt" placeholder="500">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="my-1 me-2" for="compoundType">复利方式</label>
+                            <select class="form-select" id="compoundType" name="compoundType"
+                                aria-label="Default select example">
+                                <option value="1">按年复利</option>
+                                <option value="2">按季复利</option>
+                                <option value="3">按半年复利</option>
+                                <option value="4">按月复利</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="mb-3">
+                            <label for="disabledTextInput">年利率%</label>
+                            <input type="text" id="apr" name="apr" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-lg-4 col-sm-6">
+                        <button class="btn btn-outline-primary" type="button">
+                            <span class="me-1"><span class="fas fa-calculator"></span></span>计算</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mb-4 mb-lg-5">
+
+                {% autoescape off %}
+                {{ plot_div }}
+                {% endautoescape %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}
