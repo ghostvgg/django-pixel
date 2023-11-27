@@ -39,7 +39,8 @@
     <!-- Section -->
     <div class="section section-md pt-4">
         <div class="container">
-            <form action="compound-interest" method="post">
+            <form action="/compound-interest/" name="form" method="post">
+                {% csrf_token %}
                 <div class="row mb-2 mb-lg-3">
                     <div class="col-lg-4 col-sm-6">
                         <!-- Form -->
@@ -88,7 +89,7 @@
                 </div>
                 <div class="row mb-4 mb-lg-5">
                     <div class="col-lg-4 col-sm-6">
-                        <button class="btn btn-outline-primary" type="button">
+                        <button class="btn btn-outline-primary" type="submit">
                             <span class="me-1"><span class="fas fa-calculator"></span></span>计算</button>
                     </div>
                 </div>
